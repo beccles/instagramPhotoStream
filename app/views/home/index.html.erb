@@ -1,0 +1,15 @@
+<div>
+<%= form_tag(root_path, :method => "get", id: "search-form") do %>
+  <%= text_field_tag :search, params[:search], placeholder: "GOPRO" %>
+<% end %>
+</div>
+
+<div id="list_wrapper">
+	<ul>
+	 <% @instagram.each do |instagram| %>
+	 	<li>
+	 		<a href="<%= instagram.images.standard_resolution.url %>" data-lightbox="image-1" data-title="My caption"> <%= image_tag instagram.images.thumbnail.url %> </a>
+	    </li>
+	    <% end %>
+	</ul>
+</div>
