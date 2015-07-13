@@ -3,13 +3,12 @@
   <%= text_field_tag :search, params[:search], placeholder: "GOPRO" %>
 <% end %>
 </div>
-
-<div id="list_wrapper">
+<div id= "list_wrapper">
 	<ul>
-	 <% @instagram.each do |instagram| %>
-	 	<li>
-	 		<a href="<%= instagram.images.standard_resolution.url %>" data-lightbox="image-1" data-title="My caption"> <%= image_tag instagram.images.thumbnail.url %> </a>
-	    </li>
-	    <% end %>
+		<% @posts.each do |post| %>
+		<li>
+			<a href="<%= post.image_url %>" data-lightbox="image-1" data-title="My caption"> <%= image_tag post.thumbnail_url %> </a>
+		</li>
+		<% end %>
 	</ul>
 </div>

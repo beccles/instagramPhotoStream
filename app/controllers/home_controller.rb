@@ -1,9 +1,10 @@
 class HomeController < ApplicationController
   	def index
   		if params[:search]
-			@instagram= Instagram.tag_recent_media(params[:search], {:count => 24})
+			@instagram = Post.get_posts(params[:search])
 		else
-			@instagram = Instagram.tag_recent_media('gopro', {:count => 24})
+			@instagram = Post.get_posts('gopro')
 		end
+		@posts = Post.all;
 	end
 end

@@ -7,8 +7,7 @@ gem 'rails', '4.2.3'
 gem 'sqlite3'
 gem 'instagram', '~> 1.1.5'
 gem 'lightbox2-rails'
-gem 'hashie', '~> 3.4.2'
-gem 'multi_json', '~> 1.11.2'
+gem "twitter-bootstrap-rails"
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets

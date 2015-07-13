@@ -11,10 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150712031204) do
+ActiveRecord::Schema.define(version: 20150713225939) do
 
   create_table "posts", force: :cascade do |t|
     t.text     "description"
+    t.integer  "like_count"
+    t.integer  "comment_count"
+    t.string   "image_url"
+    t.string   "thumbnail_url"
     t.string   "profile_image_url"
     t.string   "user_name"
     t.datetime "created_at",        null: false
