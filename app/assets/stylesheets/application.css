@@ -11,6 +11,7 @@
  * file per style scope.
  *
  *= require lightbox
+ *= require bootstrap_and_overrides
  *= require_tree .
  *= require_self
  */
@@ -28,6 +29,19 @@
 
 #list_wrapper{
     width: 1100px;
+}
+
+#modal_image {
+	max-width: 530px;
+}
+
+#modal_profile_image{
+	width: 100px;
+	height: 100px;
+}
+
+#side{
+	width: 320px;
 }
 
 ul.multiple_columns li{

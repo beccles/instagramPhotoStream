@@ -12,7 +12,7 @@ class Post < ActiveRecord::Base
 			post.comment_count = instagram.comments.count
 			post.image_url = instagram.images.standard_resolution.url
 			post.thumbnail_url = instagram.images.thumbnail.url
-			post.profile_image_url = instagram.user.profile_picture,
+			post.profile_image_url = instagram.user.profile_picture.gsub(/\[|\]/,'')
 			post.user_name = instagram.user.username
 			post.save
 		end
