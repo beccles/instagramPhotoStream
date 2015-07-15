@@ -1,23 +1,24 @@
 
 
 <!-- Search form -->
-<div>
+<div id= "search_div">
 <%= form_tag(root_path, :method => "get", id: "search-form") do %>
-  <%= text_field_tag :search, params[:search], placeholder: "GOPRO" %>
+  <%= text_field_tag :search, params[:search], value: params[:search] || "Gopro" %>
 <% end %>
 </div>
 
 <!-- Image grid -->
-<div id= "list_wrapper">
+<div id="image_grid_div" class="container-fluid">
 	<ul>
 		<% @posts.each do |post| %>
 		<li>
-			<img onclick="display_model('<%= post.image_url %>','<%= post.profile_image_url %>','<%= post.user_name %>', '<%= post.description %>', '<%= post.like_count %>', <%= post.comment_count %>)" src= <%= post.thumbnail_url %> >
+			<img onclick="display_modal('<%= post.image_url %>','<%= post.profile_image_url %>','<%= post.user_name %>', '<%== escape_javascript post.description %>', '<%= post.like_count %>', '<%= post.comment_count %>')" src= <%= post.thumbnail_url %> >
 		</li>
 		<% end %>
 	</ul>
 </div>
 
+<!-- Modal -->
 <div id="detail_modal" class="modal fade" role="dialog">
 	<div class="modal-dialog modal-lg">
 		<div class="modal-content">
@@ -31,21 +32,26 @@
 							<div id="modal_image_div"></div>
 						</td>
 						<td>
-							<table id="side">
+							<div id="side">
+							<table>
 								<tr>
 									<td>
-										<div id="modal_profile_image_div"></div>
-									</td>
-									<td>
-										<div id="modal_user_name_div"></div>
+										<div>
+											<div id="modal_profile_image_div"></div>
+											<div id="modal_user_name_div"></div>
+										</div>
 									</td>
 								</tr>
 								<tr>
 									<td>
-										<div id="modal_like_div"></div>
-									</td>
-									<td>
-										<div id="modal_comment_div"></div>
+										<div class="image_data">
+											<div id="modal_like_div">
+												<i class="fa fa-heart"></i>
+											</div>
+											<div id="modal_comment_div">
+												<i class="fa fa-comment"></i>
+											</div>
+										</div>
 									</td>
 								</tr>
 								<tr>
@@ -54,6 +60,7 @@
 									</td>
 								</tr>
 							</table>
+						</div>
 						</td>
 					</tr>
 				</table>

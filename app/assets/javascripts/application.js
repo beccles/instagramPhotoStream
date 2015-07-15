@@ -13,20 +13,37 @@
 //= require jquery
 //= require jquery_ujs
 //= require twitter/bootstrap
-//= require lightbox
 //= require turbolinks
 //= require_tree .
 
-function display_model(image_url, profile_image_url, user_name, description, like_count, comment_count) {
+function display_modal(image_url, profile_image_url, user_name_text, description_text, like_count, comment_count) {
+	
 	$("#detail_modal").modal('show');
 
 	var image = new Image();
 	image.src = image_url;
-	image.id = "modal_image"
+	image.id = "modal_image";
 
 	var profile_image = new Image();
 	profile_image.src = profile_image_url;
-	profile_image.id = "modal_profile_image"
+	profile_image.id = "modal_profile_image";
+
+	var user_name = document.createElement("p");
+	user_name.setAttribute("id", "modal_user_name");
+	user_name.textContent = user_name_text;
+
+	var description = document.createElement("p");
+	description.setAttribute("id", "modal_description");
+	description.setAttribute("class", "image_data");
+	description.textContent = description_text;
+
+	var likes = document.createElement("p");
+	likes.setAttribute("id", "modal_like");
+	likes.textContent = like_count;
+
+	var comments = document.createElement("p");
+	comments.setAttribute("id", "modal_comment");
+	comments.textContent = comment_count;
 
 	if ($('#modal_image').length > 0) {
     	$('#modal_image').remove();
@@ -57,6 +74,8 @@ function display_model(image_url, profile_image_url, user_name, description, lik
 	$('#modal_profile_image_div').append(profile_image);
 	$('#modal_user_name_div').append(user_name);
 	$('#modal_description_div').append(description);
-	$('#modal_like_div').append(like_count);
-	$('#modal_comment_div').append(comment_count);
+	$('#modal_like_div').append(likes);
+	$('#modal_comment_div').append(comments);
 }
+
+
